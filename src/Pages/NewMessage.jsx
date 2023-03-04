@@ -37,7 +37,7 @@ export default function NewMessage(){
             //TooDoo Requisição back end
         }
     }
-    async function PostNewChat(value){
+    const PostNewChat = async (value) => {
         await api
         .post(`Chat/${user.id}`,value)
         .then(function (response) {
@@ -47,7 +47,7 @@ export default function NewMessage(){
            console.log(error);
         });
     }
-    async function RequestUsers(){
+    const RequestUsers = async () => {
         await api
         .get(`User`)
         .then(function (response) {

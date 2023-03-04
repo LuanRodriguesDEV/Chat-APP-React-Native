@@ -15,7 +15,7 @@ export default function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
 
-    async function SendLogin(){
+    const SendLogin = async () => {
         await api
         .get(`User/${email}/${password}`)
         .then(function (response) {      

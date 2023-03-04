@@ -23,7 +23,7 @@ export default function PrivateChat({route}){
     const {chat,user,NewMessage} = useContext(UserContext);
     const params = route.params.ParamKey;
     const chatInfo = chat.find(e => e.id === params);
-    console.log(`${chatInfo} + ${params}`)
+  
 
     const [msg,setMsg] = useState("");
 
@@ -46,14 +46,17 @@ export default function PrivateChat({route}){
         
     },[chat])
     
-    async function SendMessage(){
-        console.log("Chegou")
+    const SendMessage = async () => {
         setMsg("");
         const newMessages = {
-            userId: user.id,
-            chatId: params,
-            status: 0,
-            message: msg
+            to: chatInfo.userId,
+            message:{
+                userId: user.id,
+                chatId: params,
+                status: 0,
+                message: msg
+            }
+            
         }
         await api
         .post(`Messages`,newMessages)

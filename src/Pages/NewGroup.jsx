@@ -42,9 +42,8 @@ export default function NewGroup(){
             const findUser = participantes.filter(e => e.id !== id);
             setParticipantes(findUser);
         }
-        
     }
-    async function RequestUsers(){
+    const RequestUsers = async () => {
         await api
         .get(`User`)
         .then(function (response) {

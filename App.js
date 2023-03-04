@@ -9,8 +9,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <UserProvicer>
-        <StatusBar translucent={false} style="light"/>
-        <Routes/>
+
+          <StatusBar translucent={false} style="light"/>
+          <Routes/>
       </UserProvicer>
     </NavigationContainer>
   );
